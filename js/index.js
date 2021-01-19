@@ -8,42 +8,59 @@ function updateSubtotal(product) {
   let subtotal = price * quantity;
   subtotalElement.innerText = subtotal;
   return subtotal;
-  // console.log(price);
-  // console.log(quantity);
-  // console.log(subtotal);
 }
 
 function calculateAll() {
-  // code in the following two lines is added just for testing purposes.
-  // it runs when only iteration 1 is completed. at later point, it can be removed.
-  const singleProduct = document.querySelector('.product');
-  updateSubtotal(singleProduct);
-  // end of test
 
   // ITERATION 2
-  //... your code goes here
+  let products = document.querySelectorAll('.product');
+  let total = 0;
+
+  for (let product of products) {
+    total += updateSubtotal(product);
+  }
+
+  console.log(total);
 
   // ITERATION 3
-  //... your code goes here
+  const totalElement = document.querySelector('#total-value > span');
+  totalElement.innerText = total;
 }
 
 // ITERATION 4
 
 function removeProduct(event) {
-  const target = event.currentTarget;
-  console.log('The target in remove is:', target);
-  //... your code goes here
+  console.log('remove was called');
+  const target = event.currentTarget.parentNode.parentNode;
+  target.remove();
+  calculateAll();
 }
 
 // ITERATION 5
 
 function createProduct() {
-  //... your code goes here
+  console.log('create was called');
+  // const price = document.querySelector('#cart > tfoot > tr > td:nth-child(2) > input[type=number]').value;
+  // console.log(price);
+
+
+  // get the value of the product name
+  // get the price value
+  // concat html
+  // add new product to product table
 }
 
+
+// Button event listeners
 window.addEventListener('load', () => {
   const calculatePricesBtn = document.getElementById('calculate');
   calculatePricesBtn.addEventListener('click', calculateAll);
 
-  //... your code goes here
+  const removeBtn = document.getElementsByClassName('btn-remove');
+  for (let btn of removeBtn) {
+    btn.addEventListener('click', removeProduct)
+  }
+
+  const createProductBtn = document.querySelector('#cart > tfoot > tr > td:nth-child(2) > input[type=number]');
+  createProductBtn.addEventListener('click', createProduct);
 });
