@@ -36,32 +36,6 @@ function removeProduct(event) {
 
 // ITERATION 5
 
-// function createProduct() {
-//   console.log('create was called');
-//   let price = document.querySelector('#cart > tfoot > tr > td:nth-child(2) > input[type=number]').value;
-//   let name = document.querySelector('#cart > tfoot > tr > td:nth-child(1) > input[type=text]').value
-//   const table = document.querySelector('#cart > tbody');
-//   console.log('name', name, 'price', price);
-//   console.log(table);
-//   console.log(typeof table);
-//   const newProductElement = document.createElement('tr');
-//   newProductElement.classList.add('product')
-//   newProductElement.innerHTML = `
-//     <td class="name">
-//       <span>${name}</span>
-//     </td>
-//     <td class="price">$<span>${price}</span></td>
-//     <td class="quantity">
-//       <input type="number" value="0" min="0" placeholder="Quantity" />
-//     </td>
-//     <td class="subtotal">$<span>0</span></td>
-//     <td class="action">
-//       <button class="btn btn-remove">Remove</button>
-//     </td>`;
-//   table.appendChild(newProductElement);
-//   clearNewProduct();
-// }
-
 function createProduct() {
   console.log('create was called');
   let price = document.querySelector('#cart > tfoot > tr > td:nth-child(2) > input[type=number]');
